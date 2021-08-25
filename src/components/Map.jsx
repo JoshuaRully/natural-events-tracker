@@ -6,7 +6,7 @@ function Map({ eventData }) {
   const zoom = 4.5;
   const markers = eventData.map(e => {
     if(e.categories[0].id === "wildfires") {
-      return <LocationMarker position={e.geometry[0].coordinates}/>
+      return <LocationMarker id={e.id} position={[e.geometry[0].coordinates[1], e.geometry[0].coordinates[0]]}/>
     } 
     return null;
   })
