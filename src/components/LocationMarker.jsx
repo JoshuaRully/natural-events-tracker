@@ -1,7 +1,6 @@
 import { CircleMarker, Popup } from 'react-leaflet';
 
-function LocationMarker({ onClick }) {
-  const position = [52.978443, -122.492668];
+function LocationMarker({ onClick, position }) {
   const redOptions = {color: 'red'}
 
   return (

@@ -1,9 +1,15 @@
 import { MapContainer, TileLayer} from 'react-leaflet'
 import LocationMarker from './LocationMarker';
 
-function Map(props) {
+function Map({ eventData }) {
   const center = [46.872053, -105.284258];
   const zoom = 4.5;
+  const markers = eventData.map(e => {
+    if(e.categories[0].id === "wildfires") {
+      return <LocationMarker position={e.geometry[0].coordinates}/>
+    } 
+    return null;
+  })
 
   return (
     <div>
@@ -12,7 +18,7 @@ function Map(props) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker />
+        {markers}
       </MapContainer>
     </div>
   )

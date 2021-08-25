@@ -14,10 +14,10 @@ function App() {
       const { events } = await res.json();
       setEventData(events);
       setLoading(false);
+      console.log(events);
     }
 
     getEvents();
-    console.log(eventData);
   }, []);
 
   return (
