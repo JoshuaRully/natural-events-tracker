@@ -1,6 +1,6 @@
 import { CircleMarker, Popup } from 'react-leaflet';
 
-function LocationMarker({ onClick, position, id, title }) {
+function WildfireMarker({ onClick, position, id, title }) {
   const redOptions = {color: 'red'}
 
   return (
@@ -18,4 +18,4 @@ function LocationMarker({ onClick, position, id, title }) {
   )
 }
 
-export default LocationMarker;
+export default WildfireMarker;
