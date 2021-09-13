@@ -3,8 +3,8 @@ import WildfireMarker from './WildfireMarker';
 import SevereStormMarker from './SevereStormMarker';
 
 function Map({ eventData }) {
-  const center = [46.872053, -105.284258];
-  const zoom = 4.5;
+  const center = [35.223861, -30.519450];
+  const zoom = 2.5;
   const markers = eventData.map((e, i) => {
     if(e.categories[0].id === "wildfires") {
       return (
