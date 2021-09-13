@@ -1,20 +1,23 @@
-import { CircleMarker, Popup } from 'react-leaflet';
+import React from 'react';
+import { avgMagnitude } from '../helpers/averageMagnitude';
+import { Rectangle, Popup } from 'react-leaflet';
 
-function SeaLakeIceMarker({ onClick, position, id, title }) {
-  const turquoiseOptions = {color: 'turquoise'}
+function SeaLakeIceMarker({ onClick, position, id, title, magnitudes }) {
+  const purpleOptions = { color: 'purple' }
 
   return (
-    <CircleMarker
-      center={position}
+    <Rectangle 
+      bounds={position}
       onClick={onClick}
-      pathOptions={turquoiseOptions}
-      radius={10}
+      // TODO: find color bug
+      pathOptions={purpleOptions}
     >
       <Popup>
         <h1>Title: {title}</h1>
         <h2>ID: {id}</h2>
+        <h2>Average Magnitude: {avgMagnitude(magnitudes)}</h2>
       </Popup>
-    </CircleMarker>
+    </Rectangle>
   )
 }
 

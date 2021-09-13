@@ -30,6 +30,20 @@ function Map({ eventData }) {
         />
       )
     }
+    if (e.categories[0].id === 'seaLakeIce') {
+      return (
+        <SevereStormMarker
+          key={i}
+          id={e.id}
+          title={e.title}
+          position={[
+            [e.geometry[0].coordinates[1], e.geometry[0].coordinates[0]],
+            [e.geometry[e.geometry.length - 1].coordinates[1], e.geometry[e.geometry.length - 1].coordinates[0]]
+          ]}
+          magnitudes={e.geometry.map(mag => mag.magnitudeValue)}
+        />
+      )
+    }
     return null;
   })
 
