@@ -1,6 +1,8 @@
 import { MapContainer, TileLayer} from 'react-leaflet'
 import WildfireMarker from './WildfireMarker';
+import VolcanoeMarker from './VolcanoeMarker';
 import SevereStormMarker from './SevereStormMarker';
+import SeaLakeIceMarker from './SeaLakeIceMarker';
 
 function Map({ eventData }) {
   const center = [35.223861, -30.519450];
@@ -15,7 +17,18 @@ function Map({ eventData }) {
           position={[e.geometry[0].coordinates[1], e.geometry[0].coordinates[0]]}
         />
       )
-    } 
+    }
+    // TODO: find lat lng bug
+    // if(e.categories[0].id === "volcanoes") {
+    //   return (
+    //     <VolcanoeMarker
+    //       key={i} 
+    //       id={e.id}
+    //       title={e.title}
+    //       position={[e.geometry[0].coordinates[1], e.geometry[0].coordinates[0]]}
+    //     />
+    //   )
+    // }
     if (e.categories[0].id === 'severeStorms') {
       return (
         <SevereStormMarker
@@ -32,7 +45,7 @@ function Map({ eventData }) {
     }
     if (e.categories[0].id === 'seaLakeIce') {
       return (
-        <SevereStormMarker
+        <SeaLakeIceMarker
           key={i}
           id={e.id}
           title={e.title}
